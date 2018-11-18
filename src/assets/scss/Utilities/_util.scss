@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+// 页面模块
+.px-t {
+  @include ui-border(top, $border-color);
+}
+
+.px-b {
+  @include ui-border(bottom, $border-color);
+}
+
+.px-tb {
+  @include ui-border(tb, $border-color);
+}
+
+.px-l {
+  @include ui-border(left, $border-color);
+}
+
+.px-r {
+  @include ui-border(right, $border-color);
+}
+
+.px-all {
+  @include border-radius($border-color, 0);
+}

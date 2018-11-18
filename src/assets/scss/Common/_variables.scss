@@ -1,0 +1,53 @@
+@charset "utf-8";
+//== Colors
+//
+// 单位换算 基准数
+@function rem($px) {
+  @return $px / 36px * 1rem;
+}
+
+// 字体默认颜色
+$font-color: #4A4A4A !default;
+// 页面body背景
+$body-bg-color: #efeff4 !default;
+// 导航栏背景色
+$header-bgcolor: #2e2e33 !default;
+// 边框颜色
+$border-color: #dddddd !default;
+// touch active color
+$list-active-bgcolor: #E8E8E8;
+
+// 设置主题色
+$theme-color: #007aff !default; // IOS系统蓝色
+$theme-primary: #4DB87F !default;
+$theme-success: #4DB87F !default;
+$theme-info: #5bc0de !default;
+$theme-warning: #F6A623 !default;
+$theme-danger: #E65045 !default;
+$theme-gray: #d9d9d9 !default;
+
+$dark: #494949 !default;
+$gray: #A8A8A9 !default;
+//## Font, line-height, and color for body text, headings, and more.
+
+$font-family: -apple-system-font, Helvetica Neue, Helvetica, "Microsoft Yahei", STHeiTi, monospace !default;
+
+$font-size-base: 14px !default;
+$font-size-large: 16px !default;
+$font-size-small: 12px !default;
+
+//** Unit-less `line-height` for use in components like buttons.
+$line-height-base: 1.5 !default;
+$line-height-large: 2.5 !default;
+
+$padding-base-vertical: rem(15px) !default;
+$padding-base-horizontal: rem(20px) !default;
+
+$border-radius-base: 6px !default;
+$border-radius-large: 10px !default;
+$border-radius-small: 4px !default;
+
+$inner-width: rem(15px);
+//左右留白间距
+
+

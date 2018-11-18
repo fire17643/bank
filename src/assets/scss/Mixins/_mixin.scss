@@ -1,0 +1,106 @@
+@charset "UTF-8";
+//-----------------------------------------------------
+// Mixin
+//-----------------------------------------------------
+// 闭合子元素的浮动
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+// 文字超出文本宽度，用省略号代替
+@mixin ellipsis($n) {
+  overflow: hidden;
+  @if $n == 1 {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    -webkit-line-clamp: $n;
+    -webkit-box-orient: vertical;
+  }
+
+}
+
+// 1px hack 圆角 + 单线
+@mixin border-radius($borderColor: $border-color,$borderRadius: $border-radius-base) {
+  border: 1px solid $borderColor;
+  border-radius: $borderRadius;
+  @media screen and (-webkit-min-device-pixel-ratio: 2) {
+    position: relative;
+    border: 0;
+    &:before {
+      content: "";
+      width: 200%;
+      height: 200%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 1px solid $borderColor;
+      transform: scale(.5);
+      transform-origin: 0 0;
+      padding: 1px;
+      border-radius: 2*$borderRadius;
+      pointer-events: none;
+    }
+  }
+}
+
+//
+@mixin device($res) {
+  @media screen and (-webkit-min-device-pixel-ratio: $res) {
+    @content;
+  }
+}
+
+@mixin ui-border($pos,$color: $border-color) {
+  @if $pos == tb {
+    border-top: 1px solid $color;
+    border-bottom: 1px solid $color;
+  } @else {
+    border-#{$pos}: 1px solid $color;
+  }
+
+  @include device(2) {
+    @if $pos == top {
+      border-#{$pos}: 0;
+      background-repeat: repeat-x;
+      background-size: 100% 1px;
+      background-position: left top;
+      background-image: border-t-color($color);
+
+    } @else if $pos == bottom {
+      border-#{$pos}: 0;
+      background-repeat: repeat-x;
+      background-size: 100% 1px;
+      background-position: left bottom;
+      background-image: border-b-color($color);
+
+    } @else if $pos == left {
+      border-#{$pos}: 0;
+      background-position: left top;
+      background-image: border-l-color($color);
+      background-repeat: repeat-y;
+      background-size: 1px 100%;
+    } @else if $pos == right {
+      border-#{$pos}: 0;
+      background-position: right top;
+      background-image: border-r-color($color);
+      background-repeat: repeat-y;
+      background-size: 1px 100%;
+    } @else if $pos == tb {
+      border: 0;
+      background-repeat: repeat-x;
+      background-size: 100% 1px;
+      background-image: border-t-color($color), border-b-color($color);
+      background-position: top, bottom;
+    }
+  }
+}
+
