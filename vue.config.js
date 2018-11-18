@@ -1,5 +1,5 @@
 module.exports = {
-	baseUrl: process.env.NODE_ENV === 'production' ? '/bank/dist/' : '/',
+	baseUrl: process.env.NODE_ENV === 'production' ? '/bank/' : '/',
   chainWebpack: config => {
     // 移除 prefetch 插件
     config.plugins.delete('prefetch').delete('preload')
