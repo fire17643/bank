@@ -1,8 +1,5 @@
 <template>
   <div class="page" id="app">
-    <div class="header" >
-      <h3>买卖交易</h3>
-    </div>
     <div class="content">
       <form action="" >
         <ul class="list">
@@ -25,7 +22,8 @@
                 <input type="number" min=0 v-auto-clear class="form-control" placeholder="请输入股价涨跌幅" @change="countCurrency(0)" v-model="per">
               </div>
               <div class="list-item-right">
-                <span class="counter" @click="countCurrency(1)">+</span><span class="counter" @click="countCurrency(-1)">-</span>
+                <span class="counter" @click="countCurrency(1)">+</span>
+                <span class="counter ml10" @click="countCurrency(-1)">-</span>
               </div>
             </div>
           </li>
@@ -128,8 +126,8 @@
 @import '@/assets/scss/index.scss';
 .counter {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background-color: $theme-color;
   line-height: 24px;
@@ -137,7 +135,6 @@
   color: #fff;
   text-align: center;
   vertical-align: middle;
-  margin-right: 8px;
 }
 </style>
 <script>
